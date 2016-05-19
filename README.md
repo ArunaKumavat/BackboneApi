@@ -1,3 +1,16 @@
+# I have used backbone to resolve this
+
+## Install and start the server
+
+```
+$ npm install
+$ npm start
+
+Go to this URl
+
+http://localhost:3000/#index
+
+
 # SITEPOINT FRONTEND TEST
 
 You need to create a simple counter application that can do the following:
@@ -90,3 +103,5 @@ GET /api/v1/counters
 ```
 
 > **NOTE:* Each request returns the current state of all counters.
+
+

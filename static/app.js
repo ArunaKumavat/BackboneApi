@@ -1,12 +1,18 @@
 var app = app || {};
 
+$(function() {
+    Backbone.View.prototype.close = function () {
+        this.$el.empty();
+        this.unbind();
+    };
+});
+
 $(function( $ ) {
     'use strict';
 
     app.CounterAppView = Backbone.View.extend({
 
-        el: '#counters',
-
+        el: '#counterapp',
         input: '',
 
         events: {
@@ -19,7 +25,7 @@ $(function( $ ) {
                 this,
                 'render'
             );
-             this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, "change:models", this.render);
         },
 
         contentChanged: function() {
@@ -32,7 +38,8 @@ $(function( $ ) {
                 subElement.push(new app.CounterView({model:counter}).render().el);
             }, this);
 
-            this.$el.html(subElement);
+            this.$('#counters').html(subElement);
+            return this;
         },
 
         addCounter: function() {
@@ -41,7 +48,6 @@ $(function( $ ) {
                 var newmodel = new app.Counter();
                 newmodel.attributes.title = this.input;
                 newmodel.updateModel();
-                console.log(newmodel);
                 var view = new app.CounterView({ model:newmodel});
                 $('#counters').append(view.render().el);
                 this.input === '';
@@ -82,13 +88,11 @@ $(function( $ ) {
         },
 
         incrementCounter: function() {
-            this.model.updateModelInc();
-            this.render();
+            this.model.updateModelInc();;
         },
 
         decrementCounter: function() {
             this.model.updateModelDec();
-            this.render();
         },
 
         removeCounter: function() {
@@ -158,6 +162,7 @@ $(function() {
 
 });
 
+
 $(function() {
     'use strict';
 
@@ -176,7 +181,7 @@ $(function() {
             this.CounterList.fetch({
                 success:function () {
                     self.CounterListView = new app.CounterAppView({model: self.CounterList});
-                    $('#counters').html(self.CounterListView.render());
+                    self.CounterListView.render();
                 }
             });
         }
