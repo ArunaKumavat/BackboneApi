@@ -1,0 +1,52 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #eee; }
+
+.counter {
+  padding: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.countername,
+.countervalue {
+  padding: 0.4rem;
+  text-transform: uppercase; }
+
+input {
+  display: inline-block;
+  width: 100%;
+  max-width: 10rem;
+  padding: 0.6rem;
+  background-color: #eee;
+  border: 1px solid black; }
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.5rem !important;
+  background: black;
+  font-size: 1rem;
+  border-radius: 0;
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  transition: background-color 300ms ease-out 0ms;
+  border: 1px solid black; }
+  .btn:hover, .btn:focus {
+    background-color: #eee;
+    border-color: #eee;
+    color: black; }
+  .btn.btn--plus, .btn.btn--minus {
+    background-color: #eee;
+    border-color: #eee;
+    color: black; }
+    .btn.btn--plus:hover, .btn.btn--plus:focus, .btn.btn--minus:hover, .btn.btn--minus:focus {
+      background-color: black;
+      border-color: black;
+      color: white; }
+
+/*# sourceMappingURL=app.css.map */
