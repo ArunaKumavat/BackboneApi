@@ -52,6 +52,4 @@ GET /api/v1/counters
 # ]
 ```
 
-> **NOTE:* Each request returns the current state of all counters.
-
 
